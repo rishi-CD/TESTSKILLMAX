@@ -1,15 +1,13 @@
 import { Given , When, Then} from '@cucumber/cucumber';
 import { page } from '../support/hooks';
 import { CreationAction } from '../pageAction/creationAction';
-import { Utilities } from '../Utility/utillity';
-let utillity : Utilities
 
 let usercreationAction :  CreationAction
 
 
 Given('user logged in and on the organization User creation page', async () => {
   usercreationAction = new CreationAction(page);
-  await new Utilities(page).ULnavigateTouserCreationPage();
+  // await new Utilities(page).ULnavigateTouserCreationPage();
   await usercreationAction.navigateTouserCreationPage();
 });
 When ('user choose the create Bulk user and clicks the next button', async()=>{
