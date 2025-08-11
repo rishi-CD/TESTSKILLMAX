@@ -9,7 +9,7 @@ export class CreationAction {
   async navigateTouserCreationPage() {
     await this.page.locator('//button[@type="submit"]').click()
     await expect(this.page.locator('//p[text()="Organization"]')).toBeVisible({timeout:30000});
-    await this.page.locator('//p[text()="User"]').click();
+    // await this.page.locator('//p[text()="User"]').click();
     (await this.page.waitForSelector('//button[text()="Create User"]')).click();
   } 
   async bulkusercreation(){
