@@ -9,7 +9,7 @@ Given('user on the login page', async () => {
   await loginActions.navigateToLoginPage();
 });
 When('user enters valid Email-id "standard_user" and password "password"', async () => {
-  await new Utilities(page).ULnavigateTouserCreationPage();
+  await loginActions.enterCredentials();
 });
 
 When('user enters invalid Email-id "wrong_user" and password "wrong_password"', async () => {

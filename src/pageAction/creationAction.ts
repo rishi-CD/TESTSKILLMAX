@@ -6,10 +6,13 @@ export class CreationAction {
   constructor(page: Page) {
     this.page = page;
   }
-  async navigateTouserCreationPage() {
+  async navigateTouserCreationPage(email: string = "rishibala.kanthavel@crystaldelta.com", password: string = "Rishi5521@") {
+    await this.page.goto('https://sandbox.skillsmax.ai/');
+    await this.page.locator('//input[@placeholder="Email"]').fill(email);
+    await this.page.locator('//input[@placeholder="Password"]').fill(password);
     await this.page.locator('//button[@type="submit"]').click()
     await expect(this.page.locator('//p[text()="Organization"]')).toBeVisible({timeout:30000});
-    // await this.page.locator('//p[text()="User"]').click();
+    await this.page.locator('//p[text()="User"]').click();
     (await this.page.waitForSelector('//button[text()="Create User"]')).click();
   } 
   async bulkusercreation(){

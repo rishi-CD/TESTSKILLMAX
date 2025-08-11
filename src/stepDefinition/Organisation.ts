@@ -14,7 +14,7 @@ When('user fill the organization name as {string}', async (name: string) => {
   await orgActions.fillOrganizationName(name);
 });
 
-When('user enter address as {struserng}', async (address: string) => {
+When('user enter address as {string}', async (address: string) => {
   await orgActions.fillAddress(address);
 });
 
