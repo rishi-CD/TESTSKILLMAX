@@ -1,5 +1,6 @@
 import { BeforeAll, AfterAll, Before, After, setDefaultTimeout } from "@cucumber/cucumber";
 import { chromium, Browser, BrowserContext, Page } from "@playwright/test";
+import randomstring from "randomstring";
 
 export let browser: Browser;
 export let context: BrowserContext;
@@ -16,9 +17,18 @@ BeforeAll(async function () {
     });
     page = await context.newPage();
 });
+After(async ({ error, pickle }) => {
+  if (error) {
+    console.log(error);
+    await page.screenshot({
+      path: `asserts/screenshot${
+        pickle.name
+      }_${randomstring.generate()}.png`,
+    });
+  }
+});
 
 AfterAll(async function () {
     await browser.close();
-    console.log("Browser closed");
+    
 });
-

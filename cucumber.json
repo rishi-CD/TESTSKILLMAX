@@ -1,35 +1,16 @@
-
-
-
-
 {
+  "default": {
+    "formatOptions": {
+      "snippetInterface": "async-await"
+    },
 
-"default": {
-
-"formatOptions": {
-
-"snippetInterface": "async-await"
-
-},
-
-"dryRun": false,
-
-"paths": [
-
-"src/features/"
-
-],
-
-"require": [
-
-"src/stepDefinition/*.ts",
-
-"src/support/hooks.ts"
-
-],
-
-"requireModule": [
-
-"ts-node/register"
-
-] } }
+    "dryRun": false,
+    "paths": ["src/features/"],
+    "require": ["src/stepDefinition/*.ts", "src/support/hooks.ts"],
+    "requireModule": ["ts-node/register"],
+      "format": [
+      "json:report-results/report.json"
+    ],
+     "parallel":3
+  }
+}

@@ -1,8 +1,7 @@
 import { Given , When, Then} from '@cucumber/cucumber';
 import { page } from '../support/hooks';
 import { LoginActions } from '../pageAction/loginAction';
-import { OrganizationActions } from '../pageAction/Organisation';
-
+import { Utilities } from '../Utility/utillity';
 let loginActions: LoginActions;
 
 Given('user on the login page', async () => {
@@ -10,7 +9,7 @@ Given('user on the login page', async () => {
   await loginActions.navigateToLoginPage();
 });
 When('user enters valid Email-id "standard_user" and password "password"', async () => {
-  await loginActions.enterCredentials();
+  await new Utilities(page).ULnavigateTouserCreationPage();
 });
 
 When('user enters invalid Email-id "wrong_user" and password "wrong_password"', async () => {
